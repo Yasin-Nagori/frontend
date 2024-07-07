@@ -13,12 +13,10 @@ const firebaseConfig = {
   projectId: "twitter-clone-5e96d",
   storageBucket: "twitter-clone-5e96d.appspot.com",
   messagingSenderId: "519166971554",
-  appId: "1:519166971554:web:8334b9e28035fd1f4051fb"
+  appId: "1:519166971554:web:8334b9e28035fd1f4051fb",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+const auth = getAuth(app);
 export default auth;
-
-// Initialize Cloud Firestore and get a reference to the service

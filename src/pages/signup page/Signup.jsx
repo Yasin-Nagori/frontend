@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init.js"
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init.js";
 import GoogleButton from "react-google-button";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import twitterimg from "../../image/twitter.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 function Signup() {
- 
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -19,30 +20,33 @@ function Signup() {
   const [password, setPassword] = useState("");
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-  useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth);
 
-
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     createUserWithEmailAndPassword(email, password);
 
     const user = {
       username: username,
       name: name,
-      email: email
-    }
+      email: email,
+    };
 
-    const { data } = axios.post("http://localhost:5000/register",user)
+    const { data } = axios.post(
+      "https://twitter-clone-3sf0.onrender.com/register",
+      user
+    );
     console.log(data);
   }
 
   function handleGoogleSignIn() {
     signInWithGoogle();
-  };
+  }
 
   if (user || googleUser) {
-    navigate("/")
+    navigate("/");
   }
   if (error || googleError) {
     console.log(error, googleError);
@@ -51,7 +55,7 @@ function Signup() {
   if (loading || googleLoading) {
     console.log("loading", "googleLoading");
   }
- 
+
   return (
     <>
       <div className="login-container">

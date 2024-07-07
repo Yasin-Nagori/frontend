@@ -13,14 +13,16 @@ import useLoggedInUser from "../../../hooks/useLoggedInUser";
 
 const MainProfile = ({ user }) => {
   const navigate = useNavigate();
-  const [imageURL, setImageURL] = useState('');
+  const [imageURL, setImageURL] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [loggedInUser] = useLoggedInUser();
 
   const username = user?.email?.split("@")[0];
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/userPost?email=${user?.email}`)
+    fetch(
+      `https://twitter-clone-3sf0.onrender.com/userPost?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -50,13 +52,16 @@ const MainProfile = ({ user }) => {
         setIsLoading(false);
 
         if (url) {
-          fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(userCoverImage),
-          })
+          fetch(
+            `https://twitter-clone-3sf0.onrender.com/userUpdates/${user?.email}`,
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(userCoverImage),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               console.log("done", data);
@@ -92,13 +97,16 @@ const MainProfile = ({ user }) => {
         };
         setIsLoading(false);
         if (url) {
-          fetch(`http://localhost:5000/userUpdates/${user?.email}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(userProfileImage),
-          })
+          fetch(
+            `https://twitter-clone-3sf0.onrender.com/userUpdates/${user?.email}`,
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(userProfileImage),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               console.log("done", data);

@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import auth from '../../firebase.init'
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 function useLoggedInUser() {
-    const [user] = useAuthState(auth);
-    const email = user?.email;
-    const [loggedInUser, setLoggedInuser] = useState({});
-    
+  const [user] = useAuthState(auth);
+  const email = user?.email;
+  const [loggedInUser, setLoggedInuser] = useState({});
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/loggedInUser?email=${email}`).
-            then(res => res.json()).
-        then(data=>setLoggedInuser(data))
-    }, [email, loggedInUser])
-    
-    return [loggedInUser, setLoggedInuser]
+  useEffect(() => {
+    fetch(`https://twitter-clone-3sf0.onrender.com/loggedInUser?email=${email}`)
+      .then((res) => res.json())
+      .then((data) => setLoggedInuser(data));
+  }, [email, loggedInUser]);
+
+  return [loggedInUser, setLoggedInuser];
 }
 
-export default useLoggedInUser
+export default useLoggedInUser;
