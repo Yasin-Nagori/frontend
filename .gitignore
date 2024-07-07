@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-firebase.init.js
+
 .eslintrc.cjs
 vite.config.js
+yasin.js
+firebase.init.js

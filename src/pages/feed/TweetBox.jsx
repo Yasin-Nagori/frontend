@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 import useLoggedInUser from "../../hooks/useLoggedInUser";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init";
+import auth from "../../../firebase.inits";
 function TweetBox() {
   const [post, setPost] = useState("");
   const [imageURL, setImageURL] = useState("");

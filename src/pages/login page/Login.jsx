@@ -1,45 +1,38 @@
 import React, { useState } from "react";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import "../login page/Login.css";
-import auth from "../../../firebase.init";
+import auth from "../../../firebase.inits";
 import twitterimg from "../../image/twitter.jpeg";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GoogleButton from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
 
-
-
-
-
-
-
 function Login() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
   function handleSubmit(e) {
     e.preventDefault();
-    signInWithEmailAndPassword(email,password)
+    signInWithEmailAndPassword(email, password);
   }
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-
-
 
   function handleGoogleSignIn() {
     signInWithGoogle();
   }
 
   if (user || googleUser) {
-    navigate("/")
+    navigate("/");
     console.log(user, googleUser);
   }
   if (error || googleError) {
@@ -49,7 +42,7 @@ function Login() {
   if (loading || googleLoading) {
     console.log("loading", "googleLoading");
   }
-  
+
   return (
     <>
       <div className="login-container">
