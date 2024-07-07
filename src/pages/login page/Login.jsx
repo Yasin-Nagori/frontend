@@ -4,7 +4,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import "../login page/Login.css";
-import auth from "../../../firebase.inits";
+import auth from "../../../firebase.iinits";
 import twitterimg from "../../image/twitter.jpeg";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GoogleButton from "react-google-button";

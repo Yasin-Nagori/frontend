@@ -3,7 +3,7 @@ import "../Pages.css";
 import MainProfile from "./mainprofile/MainProfile";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.inits";
+import auth from "../../../firebase.iinits";
 function Profile() {
   const [user] = useAuthState(auth);
   return (

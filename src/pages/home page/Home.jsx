@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Widgets from "../widgets/Widgets.jsx";
 import { signOut } from "firebase/auth";
-import auth from "../../../firebase.inits.js";
+import auth from "../../../firebase.iinits.js";
 import { Outlet } from "react-router-dom";
 import useLoggedInUser from "../../hooks/useLoggedInUser.js";
 import { useAuthState } from "react-firebase-hooks/auth";

@@ -26,5 +26,4 @@ dist-ssr
 
 .eslintrc.cjs
 vite.config.js
-yasin.js
-firebase.init.js
+firebase.iinits.js
