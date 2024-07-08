@@ -27,3 +27,4 @@ dist-ssr
 .eslintrc.cjs
 vite.config.js
 firebase.iinits.js
+.vercel
