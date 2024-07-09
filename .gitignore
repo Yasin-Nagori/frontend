@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 
-.eslintrc.cjs
-vite.config.js
+
 .env
-.vercel
+
